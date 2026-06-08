@@ -166,11 +166,14 @@
 
 <script>
 // ============================================================
-// CONFIGURATION — update DATA_URL after deploying to GitHub
+// CONFIGURATION
 // ============================================================
-const DATA_URL = 'https://kyleNatorp.github.io/plant-finder/plants.json';
-// After deploying to GitHub Pages, change this to your full URL, e.g.:
-// const DATA_URL = 'https://YOURUSERNAME.github.io/plant-finder/plants.json';
+const DATA_URL = 'https://kylenatorp.github.io/plant-finder/plants.json';
+const DATA_URLS = [
+  'https://kylenatorp.github.io/plant-finder/plants.json',
+  './plants.json',
+  'plants.json',
+];
 // ============================================================
 
 const CACHE_KEY = 'plantfinder_plants_v1';
@@ -200,14 +203,50 @@ const syncLabel = document.getElementById('sync-label');
 const loadingOverlay = document.getElementById('loading');
 
 // ─── Data fetching ───────────────────────────────────────────
-async function fetchPlants(forceRefresh = false) {
-  // Try network first
+function xhrFetch(url) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', url + '?t=' + Date.now(), true);
+    xhr.setRequestHeader('Accept', 'application/json');
+    xhr.timeout = 8000;
+    xhr.onload = () => {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        try { resolve(JSON.parse(xhr.responseText)); }
+        catch(e) { reject(e); }
+      } else { reject(new Error('HTTP ' + xhr.status)); }
+    };
+    xhr.onerror = () => reject(new Error('XHR error'));
+    xhr.ontimeout = () => reject(new Error('Timeout'));
+    xhr.send();
+  });
+}
+
+async function tryFetchURL(url) {
+  // Try XHR first (works better in installed PWA context)
   try {
-    const url = DATA_URL + '?t=' + Date.now();
-    const resp = await fetch(url, { cache: 'no-cache' });
-    if (resp.ok) {
-      const data = await resp.json();
-      if (Array.isArray(data) && data.length > 0) {
+    const data = await xhrFetch(url);
+    if (Array.isArray(data) && data.length > 0) return data;
+  } catch(e) {}
+  // Then try fetch with various modes
+  const modes = ['cors', 'same-origin', 'no-cors'];
+  for (const mode of modes) {
+    try {
+      const resp = await fetch(url + '?t=' + Date.now(), { cache: 'no-cache', mode });
+      if (resp && resp.ok) {
+        const data = await resp.json();
+        if (Array.isArray(data) && data.length > 0) return data;
+      }
+    } catch(e) {}
+  }
+  return null;
+}
+
+async function fetchPlants(forceRefresh = false) {
+  // Try all URL variants
+  for (const url of DATA_URLS) {
+    try {
+      const data = await tryFetchURL(url);
+      if (data) {
         plants = data;
         localStorage.setItem(CACHE_KEY, JSON.stringify(data));
         localStorage.setItem(SYNC_TS_KEY, Date.now().toString());
@@ -215,8 +254,8 @@ async function fetchPlants(forceRefresh = false) {
         setSyncStatus('live');
         return true;
       }
-    }
-  } catch(e) {}
+    } catch(e) {}
+  }
 
   // Fall back to localStorage cache
   try {
