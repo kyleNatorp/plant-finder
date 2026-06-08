@@ -1,0 +1,22 @@
+[
+  {"id":1,"common":"Black-Eyed Susan","genus":"Rudbeckia","species":"fulgida","type":"Perennial","aisle":"A","section":"1-3","sun":"Full Sun","water":"Low","size":"2-3 ft","bloom":"Summer"},
+  {"id":2,"common":"Coneflower","genus":"Echinacea","species":"purpurea","type":"Perennial","aisle":"A","section":"4-6","sun":"Full Sun","water":"Low","size":"2-4 ft","bloom":"Summer"},
+  {"id":3,"common":"Hosta","genus":"Hosta","species":"undulata","type":"Perennial","aisle":"B","section":"1-4","sun":"Shade","water":"Medium","size":"1-3 ft","bloom":"Summer"},
+  {"id":4,"common":"Daylily","genus":"Hemerocallis","species":"hybrid","type":"Perennial","aisle":"A","section":"7-9","sun":"Full Sun","water":"Low","size":"1-4 ft","bloom":"Summer"},
+  {"id":5,"common":"Lavender","genus":"Lavandula","species":"angustifolia","type":"Perennial","aisle":"C","section":"1-2","sun":"Full Sun","water":"Low","size":"1-3 ft","bloom":"Summer"},
+  {"id":6,"common":"Petunia","genus":"Petunia","species":"hybrid","type":"Annual","aisle":"D","section":"1-6","sun":"Full Sun","water":"Medium","size":"6-18 in","bloom":"Spring-Fall"},
+  {"id":7,"common":"Marigold","genus":"Tagetes","species":"patula","type":"Annual","aisle":"D","section":"7-12","sun":"Full Sun","water":"Low","size":"6-24 in","bloom":"Spring-Fall"},
+  {"id":8,"common":"Impatiens","genus":"Impatiens","species":"walleriana","type":"Annual","aisle":"E","section":"1-4","sun":"Shade","water":"High","size":"6-18 in","bloom":"Spring-Fall"},
+  {"id":9,"common":"Boxwood","genus":"Buxus","species":"sempervirens","type":"Shrub","aisle":"F","section":"1-5","sun":"Part Shade","water":"Medium","size":"2-8 ft","bloom":"N/A"},
+  {"id":10,"common":"Knockout Rose","genus":"Rosa","species":"hybrid","type":"Shrub","aisle":"F","section":"6-10","sun":"Full Sun","water":"Medium","size":"3-6 ft","bloom":"Spring-Fall"},
+  {"id":11,"common":"Burning Bush","genus":"Euonymus","species":"alatus","type":"Shrub","aisle":"G","section":"1-4","sun":"Full Sun","water":"Low","size":"6-10 ft","bloom":"N/A"},
+  {"id":12,"common":"Japanese Maple","genus":"Acer","species":"palmatum","type":"Tree","aisle":"H","section":"1-6","sun":"Part Shade","water":"Medium","size":"6-25 ft","bloom":"N/A"},
+  {"id":13,"common":"Redbud","genus":"Cercis","species":"canadensis","type":"Tree","aisle":"H","section":"7-10","sun":"Full Sun","water":"Low","size":"20-30 ft","bloom":"Spring"},
+  {"id":14,"common":"Arborvitae","genus":"Thuja","species":"occidentalis","type":"Evergreen","aisle":"I","section":"1-8","sun":"Full Sun","water":"Medium","size":"10-30 ft","bloom":"N/A"},
+  {"id":15,"common":"Blue Spruce","genus":"Picea","species":"pungens","type":"Evergreen","aisle":"I","section":"9-12","sun":"Full Sun","water":"Low","size":"30-60 ft","bloom":"N/A"},
+  {"id":16,"common":"Ornamental Grass","genus":"Miscanthus","species":"sinensis","type":"Grass","aisle":"J","section":"1-4","sun":"Full Sun","water":"Low","size":"3-8 ft","bloom":"Fall"},
+  {"id":17,"common":"Blue Oat Grass","genus":"Helictotrichon","species":"sempervirens","type":"Grass","aisle":"J","section":"5-6","sun":"Full Sun","water":"Low","size":"2-3 ft","bloom":"Summer"},
+  {"id":18,"common":"Tomato","genus":"Solanum","species":"lycopersicum","type":"Vegetable","aisle":"K","section":"1-8","sun":"Full Sun","water":"High","size":"2-6 ft","bloom":"Summer"},
+  {"id":19,"common":"Pepper","genus":"Capsicum","species":"annuum","type":"Vegetable","aisle":"K","section":"9-12","sun":"Full Sun","water":"Medium","size":"1-3 ft","bloom":"Summer"},
+  {"id":20,"common":"Basil","genus":"Ocimum","species":"basilicum","type":"Herb","aisle":"L","section":"1-4","sun":"Full Sun","water":"Medium","size":"1-2 ft","bloom":"Summer"}
+]
