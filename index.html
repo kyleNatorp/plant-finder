@@ -8,7 +8,6 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Plant Finder">
   <meta name="theme-color" content="#2d5a0e">
-  <meta name="description" content="Outlet plant location lookup for sales staff">
   <link rel="apple-touch-icon" href="icons/icon-180.png">
   <link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
@@ -39,13 +38,12 @@
     .app-title svg{width:28px;height:28px;}
     .app-title h1{font-size:20px;font-weight:700;color:#EAF3DE;letter-spacing:-0.3px;}
     .sync-pill{font-size:11px;color:var(--g200);background:rgba(192,221,151,0.15);border:0.5px solid rgba(192,221,151,0.3);border-radius:20px;padding:4px 9px;display:flex;align-items:center;gap:4px;cursor:pointer;}
-    .sync-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;transition:background 0.3s;}
+    .sync-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
     .sync-dot.live{background:#7db52e;} .sync-dot.stale{background:#BA7517;} .sync-dot.offline{background:#888;}
     .search-wrap{position:relative;}
     .search-wrap svg.si{position:absolute;left:10px;top:50%;transform:translateY(-50%);opacity:0.6;pointer-events:none;}
     #search{width:100%;padding:10px 36px 10px 34px;border-radius:10px;border:none;background:rgba(255,255,255,0.13);color:#EAF3DE;font-size:15px;outline:none;}
     #search::placeholder{color:rgba(192,221,151,0.55);}
-    #search:focus{background:rgba(255,255,255,0.18);}
     .clear-x{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#EAF3DE;border-radius:50%;width:20px;height:20px;font-size:12px;cursor:pointer;display:none;align-items:center;justify-content:center;}
     .clear-x.vis{display:flex;}
     .tabs{display:flex;background:var(--card);border-bottom:0.5px solid var(--border);flex-shrink:0;}
@@ -55,7 +53,7 @@
     .scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(var(--safe-bottom) + 12px);}
     .slabel{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;padding:14px 14px 6px;}
     .type-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:0 12px 12px;}
-    .type-btn{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:14px 12px 12px;cursor:pointer;text-align:left;transition:transform 0.12s,border-color 0.12s;}
+    .type-btn{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:14px 12px 12px;cursor:pointer;text-align:left;transition:transform 0.12s;}
     .type-btn:active{transform:scale(0.97);}
     .type-btn .tb-icon{width:36px;height:36px;border-radius:9px;background:var(--g50);display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
     .type-btn .tb-icon svg{width:20px;height:20px;color:var(--g700);}
@@ -86,8 +84,7 @@
     .drow:last-child{border-bottom:none;}
     .drow-l{color:var(--text3);} .drow-v{font-weight:600;color:var(--text);}
     .genus-list{padding:0 12px 12px;display:flex;flex-direction:column;gap:6px;}
-    .genus-btn{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:12px 14px;cursor:pointer;text-align:left;width:100%;display:flex;justify-content:space-between;align-items:center;transition:transform 0.1s;}
-    .genus-btn:active{transform:scale(0.985);}
+    .genus-btn{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:12px 14px;cursor:pointer;text-align:left;width:100%;display:flex;justify-content:space-between;align-items:center;}
     .gb-name{font-size:15px;font-weight:600;color:var(--text);font-style:italic;}
     .gb-sub{font-size:12px;color:var(--text3);margin-top:2px;}
     .gb-badge{font-size:12px;background:var(--bg);color:var(--text3);border:0.5px solid var(--border);border-radius:20px;padding:3px 10px;}
@@ -95,33 +92,23 @@
     .status-card{background:var(--card);border:0.5px solid var(--border);border-radius:14px;padding:16px;margin-bottom:14px;}
     .sc-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:0.5px solid var(--border);font-size:14px;}
     .sc-row:last-child{border-bottom:none;}
-    .sc-label{color:var(--text3);}
-    .sc-val{font-weight:600;color:var(--text);}
-    .sc-val.green{color:var(--g600);}
-    .sc-val.amber{color:var(--amber);}
+    .sc-label{color:var(--text3);} .sc-val{font-weight:600;color:var(--text);}
+    .sc-val.green{color:var(--g600);} .sc-val.amber{color:var(--amber);}
     .sync-btn{width:100%;padding:13px;border-radius:12px;border:none;background:var(--g700);color:#EAF3DE;font-size:15px;font-weight:600;cursor:pointer;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:8px;}
-    .sync-btn:active{transform:scale(0.98);}
-    .sync-btn.spinning svg{animation:spin 1s linear infinite;}
     @keyframes spin{to{transform:rotate(360deg);}}
+    .spinning svg{animation:spin 1s linear infinite;}
     .info-box{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:14px;font-size:13px;color:var(--text2);line-height:1.7;}
-    .info-box code{font-family:'SF Mono',monospace;font-size:11.5px;background:var(--bg);padding:2px 5px;border-radius:4px;color:var(--g600);}
+    .info-box code{font-family:'SF Mono',monospace;font-size:11px;background:var(--bg);padding:2px 5px;border-radius:4px;color:var(--g600);}
     .info-box strong{color:var(--text);font-weight:600;}
     .empty{text-align:center;padding:50px 16px;}
     .empty svg{margin:0 auto 12px;display:block;opacity:0.35;}
     .empty p{font-size:15px;color:var(--text3);}
     .toast{position:fixed;bottom:calc(var(--safe-bottom) + 80px);left:50%;transform:translateX(-50%) translateY(20px);background:var(--g900);color:#EAF3DE;font-size:14px;padding:10px 20px;border-radius:20px;opacity:0;transition:all 0.25s;pointer-events:none;white-space:nowrap;z-index:999;}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
-    .loading-overlay{position:absolute;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;z-index:50;}
-    .spinner{width:36px;height:36px;border:3px solid var(--g200);border-top-color:var(--g700);border-radius:50%;animation:spin 0.8s linear infinite;}
-    .loading-overlay p{font-size:14px;color:var(--text3);}
   </style>
 </head>
 <body>
-<div id="app" style="position:relative;">
-  <div class="loading-overlay" id="loading">
-    <div class="spinner"></div>
-    <p>Loading plant data…</p>
-  </div>
+<div id="app">
   <div class="header">
     <div class="header-row">
       <div class="app-title">
@@ -133,7 +120,7 @@
       </div>
       <div class="sync-pill" id="sync-pill" onclick="manualSync()">
         <span class="sync-dot live" id="sync-dot"></span>
-        <span id="sync-label">Checking…</span>
+        <span id="sync-label">Loading…</span>
       </div>
     </div>
     <div class="search-wrap">
@@ -165,20 +152,18 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// ============================================================
-// CONFIGURATION
-// ============================================================
-const DATA_URL = 'https://kylenatorp.github.io/plant-finder/plants.json';
-const DATA_URLS = [
-  'https://kylenatorp.github.io/plant-finder/plants.json',
-  './plants.json',
-  'plants.json',
-];
-// ============================================================
+// Kill any old service workers that may be caching stale files
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(regs => {
+    regs.forEach(reg => reg.unregister());
+  });
+}
 
-const CACHE_KEY = 'plantfinder_plants_v1';
-const SYNC_TS_KEY = 'plantfinder_sync_ts';
-const SYNC_SRC_KEY = 'plantfinder_sync_src';
+// Data URL — already confirmed working
+const DATA_URL = 'https://kylenatorp.github.io/plant-finder/plants.json';
+
+// Embedded fallback data — always available even with no network
+const FALLBACK = [{"id":1,"common":"Black-Eyed Susan","genus":"Rudbeckia","species":"fulgida","type":"Perennial","aisle":"A","section":"1-3","sun":"Full Sun","water":"Low","size":"2-3 ft","bloom":"Summer"},{"id":2,"common":"Coneflower","genus":"Echinacea","species":"purpurea","type":"Perennial","aisle":"A","section":"4-6","sun":"Full Sun","water":"Low","size":"2-4 ft","bloom":"Summer"},{"id":3,"common":"Hosta","genus":"Hosta","species":"undulata","type":"Perennial","aisle":"B","section":"1-4","sun":"Shade","water":"Medium","size":"1-3 ft","bloom":"Summer"},{"id":4,"common":"Daylily","genus":"Hemerocallis","species":"hybrid","type":"Perennial","aisle":"A","section":"7-9","sun":"Full Sun","water":"Low","size":"1-4 ft","bloom":"Summer"},{"id":5,"common":"Lavender","genus":"Lavandula","species":"angustifolia","type":"Perennial","aisle":"C","section":"1-2","sun":"Full Sun","water":"Low","size":"1-3 ft","bloom":"Summer"},{"id":6,"common":"Petunia","genus":"Petunia","species":"hybrid","type":"Annual","aisle":"D","section":"1-6","sun":"Full Sun","water":"Medium","size":"6-18 in","bloom":"Spring-Fall"},{"id":7,"common":"Marigold","genus":"Tagetes","species":"patula","type":"Annual","aisle":"D","section":"7-12","sun":"Full Sun","water":"Low","size":"6-24 in","bloom":"Spring-Fall"},{"id":8,"common":"Impatiens","genus":"Impatiens","species":"walleriana","type":"Annual","aisle":"E","section":"1-4","sun":"Shade","water":"High","size":"6-18 in","bloom":"Spring-Fall"},{"id":9,"common":"Boxwood","genus":"Buxus","species":"sempervirens","type":"Shrub","aisle":"F","section":"1-5","sun":"Part Shade","water":"Medium","size":"2-8 ft","bloom":"N/A"},{"id":10,"common":"Knockout Rose","genus":"Rosa","species":"hybrid","type":"Shrub","aisle":"F","section":"6-10","sun":"Full Sun","water":"Medium","size":"3-6 ft","bloom":"Spring-Fall"},{"id":11,"common":"Burning Bush","genus":"Euonymus","species":"alatus","type":"Shrub","aisle":"G","section":"1-4","sun":"Full Sun","water":"Low","size":"6-10 ft","bloom":"N/A"},{"id":12,"common":"Japanese Maple","genus":"Acer","species":"palmatum","type":"Tree","aisle":"H","section":"1-6","sun":"Part Shade","water":"Medium","size":"6-25 ft","bloom":"N/A"},{"id":13,"common":"Redbud","genus":"Cercis","species":"canadensis","type":"Tree","aisle":"H","section":"7-10","sun":"Full Sun","water":"Low","size":"20-30 ft","bloom":"Spring"},{"id":14,"common":"Arborvitae","genus":"Thuja","species":"occidentalis","type":"Evergreen","aisle":"I","section":"1-8","sun":"Full Sun","water":"Medium","size":"10-30 ft","bloom":"N/A"},{"id":15,"common":"Blue Spruce","genus":"Picea","species":"pungens","type":"Evergreen","aisle":"I","section":"9-12","sun":"Full Sun","water":"Low","size":"30-60 ft","bloom":"N/A"},{"id":16,"common":"Ornamental Grass","genus":"Miscanthus","species":"sinensis","type":"Grass","aisle":"J","section":"1-4","sun":"Full Sun","water":"Low","size":"3-8 ft","bloom":"Fall"},{"id":17,"common":"Blue Oat Grass","genus":"Helictotrichon","species":"sempervirens","type":"Grass","aisle":"J","section":"5-6","sun":"Full Sun","water":"Low","size":"2-3 ft","bloom":"Summer"},{"id":18,"common":"Tomato","genus":"Solanum","species":"lycopersicum","type":"Vegetable","aisle":"K","section":"1-8","sun":"Full Sun","water":"High","size":"2-6 ft","bloom":"Summer"},{"id":19,"common":"Pepper","genus":"Capsicum","species":"annuum","type":"Vegetable","aisle":"K","section":"9-12","sun":"Full Sun","water":"Medium","size":"1-3 ft","bloom":"Summer"},{"id":20,"common":"Basil","genus":"Ocimum","species":"basilicum","type":"Herb","aisle":"L","section":"1-4","sun":"Full Sun","water":"Medium","size":"1-2 ft","bloom":"Summer"}];
 
 const TYPE_ICONS = {
   Perennial:`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 12 8 9 8 5C8 3 10 2 12 2C14 2 16 3 16 5C16 9 12 12 12 12Z"/><path d="M12 12C12 12 7 12 5 9C4 7.5 5 6 6.5 6C9 6 12 9 12 12Z"/><path d="M12 12C12 12 17 12 19 9C20 7.5 19 6 17.5 6C15 6 12 9 12 12Z"/></svg>`,
@@ -192,191 +177,156 @@ const TYPE_ICONS = {
 };
 
 let plants = [];
-let tab = 'type', detail = null, filterType = null, filterGenus = null, searching = false;
-let syncStatus = 'checking'; // live | stale | offline
+let tab='type', detail=null, filterType=null, filterGenus=null, searching=false;
 
 const scroll = document.getElementById('scroll');
 const searchEl = document.getElementById('search');
 const clearX = document.getElementById('clear-x');
 const syncDot = document.getElementById('sync-dot');
 const syncLabel = document.getElementById('sync-label');
-const loadingOverlay = document.getElementById('loading');
 
-// ─── Data fetching ───────────────────────────────────────────
-function xhrFetch(url) {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', url + '?t=' + Date.now(), true);
-    xhr.setRequestHeader('Accept', 'application/json');
-    xhr.timeout = 8000;
-    xhr.onload = () => {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        try { resolve(JSON.parse(xhr.responseText)); }
-        catch(e) { reject(e); }
-      } else { reject(new Error('HTTP ' + xhr.status)); }
-    };
-    xhr.onerror = () => reject(new Error('XHR error'));
-    xhr.ontimeout = () => reject(new Error('Timeout'));
-    xhr.send();
-  });
-}
+async function loadData() {
+  // Always show fallback data immediately so app is usable
+  plants = FALLBACK;
+  renderTab();
+  syncDot.className = 'sync-dot stale';
+  syncLabel.textContent = 'Built-in data';
 
-async function tryFetchURL(url) {
-  // Try XHR first (works better in installed PWA context)
+  // Then try to fetch live data
   try {
-    const data = await xhrFetch(url);
-    if (Array.isArray(data) && data.length > 0) return data;
-  } catch(e) {}
-  // Then try fetch with various modes
-  const modes = ['cors', 'same-origin', 'no-cors'];
-  for (const mode of modes) {
-    try {
-      const resp = await fetch(url + '?t=' + Date.now(), { cache: 'no-cache', mode });
-      if (resp && resp.ok) {
-        const data = await resp.json();
-        if (Array.isArray(data) && data.length > 0) return data;
-      }
-    } catch(e) {}
-  }
-  return null;
-}
-
-async function fetchPlants(forceRefresh = false) {
-  // Try all URL variants
-  for (const url of DATA_URLS) {
-    try {
-      const data = await tryFetchURL(url);
-      if (data) {
+    const resp = await fetch(DATA_URL + '?v=' + Date.now(), {
+      method: 'GET',
+      headers: { 'Accept': 'application/json' },
+      cache: 'no-store'
+    });
+    if (resp.ok) {
+      const data = await resp.json();
+      if (Array.isArray(data) && data.length > 0) {
         plants = data;
-        localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-        localStorage.setItem(SYNC_TS_KEY, Date.now().toString());
-        localStorage.setItem(SYNC_SRC_KEY, 'network');
-        setSyncStatus('live');
-        return true;
+        localStorage.setItem('pf_plants', JSON.stringify(data));
+        localStorage.setItem('pf_ts', Date.now());
+        syncDot.className = 'sync-dot live';
+        const t = new Date();
+        syncLabel.textContent = 'Live · ' + t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+        renderTab();
+        return;
       }
-    } catch(e) {}
-  }
-
-  // Fall back to localStorage cache
-  try {
-    const cached = localStorage.getItem(CACHE_KEY);
-    if (cached) {
-      plants = JSON.parse(cached);
-      setSyncStatus('stale');
-      return true;
     }
   } catch(e) {}
 
-  setSyncStatus('offline');
-  return false;
-}
-
-function setSyncStatus(status) {
-  syncStatus = status;
-  syncDot.className = 'sync-dot ' + status;
-  const ts = localStorage.getItem(SYNC_TS_KEY);
-  if (status === 'live') {
-    const now = new Date();
-    syncLabel.textContent = 'Live · ' + now.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
-  } else if (status === 'stale' && ts) {
-    const d = new Date(parseInt(ts));
-    const today = new Date();
-    syncLabel.textContent = d.toDateString() === today.toDateString()
-      ? 'Cached · ' + d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})
-      : 'Cached · ' + d.toLocaleDateString([],{month:'short',day:'numeric'});
-  } else {
-    syncLabel.textContent = 'Offline';
-  }
+  // Try localStorage cache
+  try {
+    const cached = localStorage.getItem('pf_plants');
+    if (cached) {
+      const data = JSON.parse(cached);
+      if (Array.isArray(data) && data.length > 0) {
+        plants = data;
+        const ts = localStorage.getItem('pf_ts');
+        const d = ts ? new Date(parseInt(ts)) : null;
+        syncDot.className = 'sync-dot stale';
+        syncLabel.textContent = d ? 'Cached · ' + d.toLocaleDateString([],{month:'short',day:'numeric'}) : 'Cached';
+        renderTab();
+        return;
+      }
+    }
+  } catch(e) {}
 }
 
 async function manualSync() {
   syncLabel.textContent = 'Syncing…';
-  const ok = await fetchPlants(true);
-  if (ok) { showToast(syncStatus === 'live' ? '✓ Data refreshed' : '⚠ Using cached data'); renderTab(); }
-  else { showToast('Could not reach data source'); }
-}
-
-// ─── Startup ─────────────────────────────────────────────────
-async function init() {
-  const ok = await fetchPlants();
-  loadingOverlay.style.display = 'none';
-  if (ok) { renderTab(); }
-  else {
-    scroll.innerHTML = `<div class="empty">
-      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 9v4"/><circle cx="12" cy="17" r="1"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
-      <p>No data available.<br>Connect to WiFi and tap the sync badge.</p>
-    </div>`;
+  syncDot.className = 'sync-dot stale';
+  try {
+    const resp = await fetch(DATA_URL + '?v=' + Date.now(), { cache: 'no-store' });
+    if (resp.ok) {
+      const data = await resp.json();
+      if (Array.isArray(data) && data.length > 0) {
+        plants = data;
+        localStorage.setItem('pf_plants', JSON.stringify(data));
+        localStorage.setItem('pf_ts', Date.now());
+        syncDot.className = 'sync-dot live';
+        syncLabel.textContent = 'Live · ' + new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+        renderTab();
+        showToast('✓ ' + data.length + ' plants loaded from GitHub');
+        return;
+      }
+    }
+    showToast('Could not reach GitHub — showing cached data');
+    syncDot.className = 'sync-dot stale';
+    syncLabel.textContent = 'Cached';
+  } catch(e) {
+    showToast('Network error — showing built-in data');
+    syncDot.className = 'sync-dot offline';
+    syncLabel.textContent = 'Offline';
   }
 }
 
-// ─── UI ──────────────────────────────────────────────────────
 searchEl.addEventListener('input', () => {
   const q = searchEl.value.trim();
   clearX.classList.toggle('vis', q.length > 0);
-  if (q.length > 0) { searching = true; detail = null; renderSearch(q); }
-  else { searching = false; renderTab(); }
+  if (q.length > 0) { searching=true; detail=null; renderSearch(q); }
+  else { searching=false; renderTab(); }
 });
 
 function clearSearch() {
-  searchEl.value = ''; clearX.classList.remove('vis');
-  searching = false; detail = null; renderTab();
+  searchEl.value=''; clearX.classList.remove('vis');
+  searching=false; detail=null; renderTab();
 }
 
 function switchTab(t) {
   if (searching) return;
-  tab = t; detail = null; filterType = null; filterGenus = null;
-  document.querySelectorAll('.tab').forEach(el => el.classList.toggle('on', el.dataset.t === t));
+  tab=t; detail=null; filterType=null; filterGenus=null;
+  document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('on',el.dataset.t===t));
   renderTab();
 }
 
 function renderTab() {
-  if (detail !== null) { renderDetail(detail); return; }
-  if (tab === 'type') renderTypeTab();
-  else if (tab === 'genus') renderGenusTab();
-  else if (tab === 'all') renderList([...plants].sort((a,b)=>a.common.localeCompare(b.common)),'All plants',true);
+  if (detail!==null){renderDetail(detail);return;}
+  if(tab==='type') renderTypeTab();
+  else if(tab==='genus') renderGenusTab();
+  else if(tab==='all') renderList([...plants].sort((a,b)=>a.common.localeCompare(b.common)),'All plants',true);
   else renderDataTab();
 }
 
 function renderTypeTab() {
-  if (filterType) { renderList(plants.filter(p=>p.type===filterType), filterType); return; }
-  const types = [...new Set(plants.map(p=>p.type))].sort();
-  let h = '<div class="slabel">Plant types</div><div class="type-grid">';
-  types.forEach(t => {
-    const n = plants.filter(p=>p.type===t).length;
-    const icon = TYPE_ICONS[t] || TYPE_ICONS.Herb;
-    h += `<button class="type-btn" onclick="filterType='${t}';renderTab()">
+  if(filterType){renderList(plants.filter(p=>p.type===filterType),filterType);return;}
+  const types=[...new Set(plants.map(p=>p.type))].sort();
+  let h='<div class="slabel">Plant types</div><div class="type-grid">';
+  types.forEach(t=>{
+    const n=plants.filter(p=>p.type===t).length;
+    const icon=TYPE_ICONS[t]||TYPE_ICONS.Herb;
+    h+=`<button class="type-btn" onclick="filterType='${t}';renderTab()">
       <div class="tb-icon">${icon}</div>
       <div class="tb-name">${t}</div>
       <div class="tb-count">${n} plant${n!==1?'s':''}</div>
     </button>`;
   });
-  scroll.innerHTML = h + '</div>';
+  scroll.innerHTML=h+'</div>';
 }
 
 function renderGenusTab() {
-  if (filterGenus) { renderList(plants.filter(p=>p.genus===filterGenus), filterGenus); return; }
-  const genera = [...new Set(plants.map(p=>p.genus))].sort();
-  let h = '<div class="slabel">Genera — A to Z</div><div class="genus-list">';
-  genera.forEach(g => {
-    const n = plants.filter(p=>p.genus===g).length;
-    const ex = plants.find(p=>p.genus===g);
-    h += `<button class="genus-btn" onclick="filterGenus='${g}';renderTab()">
+  if(filterGenus){renderList(plants.filter(p=>p.genus===filterGenus),filterGenus);return;}
+  const genera=[...new Set(plants.map(p=>p.genus))].sort();
+  let h='<div class="slabel">Genera — A to Z</div><div class="genus-list">';
+  genera.forEach(g=>{
+    const n=plants.filter(p=>p.genus===g).length;
+    const ex=plants.find(p=>p.genus===g);
+    h+=`<button class="genus-btn" onclick="filterGenus='${g}';renderTab()">
       <div><div class="gb-name">${g}</div><div class="gb-sub">${ex.type}</div></div>
       <span class="gb-badge">${n} var.</span>
     </button>`;
   });
-  scroll.innerHTML = h + '</div>';
+  scroll.innerHTML=h+'</div>';
 }
 
-function renderList(list, title, noBack=false) {
-  let h = `<div class="slabel" style="display:flex;align-items:center;gap:8px;">`;
-  if (!noBack) h += `<button onclick="filterType=null;filterGenus=null;renderTab()" style="background:none;border:none;color:var(--g600);font-size:22px;cursor:pointer;padding:0;line-height:1;margin-right:2px;">‹</button>`;
-  h += `${title}</div><div class="plant-list">`;
-  if (!list.length) h += emptyState('No plants found');
-  else list.forEach(p => { h += plantCard(p); });
-  scroll.innerHTML = h + '</div>';
-  scroll.querySelectorAll('.plant-card').forEach((el, i) => {
-    el.addEventListener('click', () => showDetail(list[i].id));
+function renderList(list,title,noBack=false) {
+  let h=`<div class="slabel" style="display:flex;align-items:center;gap:8px;">`;
+  if(!noBack) h+=`<button onclick="filterType=null;filterGenus=null;renderTab()" style="background:none;border:none;color:var(--g600);font-size:22px;cursor:pointer;padding:0;line-height:1;margin-right:2px;">‹</button>`;
+  h+=`${title}</div><div class="plant-list">`;
+  if(!list.length) h+=emptyState('No plants found');
+  else list.forEach(p=>{h+=plantCard(p);});
+  scroll.innerHTML=h+'</div>';
+  scroll.querySelectorAll('.plant-card').forEach((el,i)=>{
+    el.addEventListener('click',()=>showDetail(list[i].id));
   });
 }
 
@@ -394,12 +344,12 @@ function plantCard(p) {
   </div>`;
 }
 
-function showDetail(id) { detail = id; renderDetail(id); }
+function showDetail(id){detail=id;renderDetail(id);}
 
 function renderDetail(id) {
-  const p = plants.find(x=>x.id===id);
-  if (!p) return;
-  scroll.innerHTML = `<div class="detail">
+  const p=plants.find(x=>x.id===id);
+  if(!p) return;
+  scroll.innerHTML=`<div class="detail">
     <button class="back-btn" onclick="detail=null;renderTab()">‹ Back</button>
     <div class="detail-hero">
       <div class="dh-name">${p.common}</div>
@@ -421,53 +371,44 @@ function renderDetail(id) {
 }
 
 function renderSearch(q) {
-  const ql = q.toLowerCase();
-  const results = plants.filter(p =>
+  const ql=q.toLowerCase();
+  const results=plants.filter(p=>
     p.common.toLowerCase().includes(ql)||p.genus.toLowerCase().includes(ql)||
     p.species.toLowerCase().includes(ql)||p.type.toLowerCase().includes(ql)||
     p.aisle.toLowerCase().includes(ql)
   );
-  let h = `<div class="slabel">${results.length} result${results.length!==1?'s':''} for "${q}"</div><div class="plant-list">`;
-  if (!results.length) h += emptyState('No plants match');
-  else results.forEach(p => { h += plantCard(p); });
-  scroll.innerHTML = h + '</div>';
-  scroll.querySelectorAll('.plant-card').forEach((el, i) => {
-    el.addEventListener('click', () => showDetail(results[i].id));
+  let h=`<div class="slabel">${results.length} result${results.length!==1?'s':''} for "${q}"</div><div class="plant-list">`;
+  if(!results.length) h+=emptyState('No plants match');
+  else results.forEach(p=>{h+=plantCard(p);});
+  scroll.innerHTML=h+'</div>';
+  scroll.querySelectorAll('.plant-card').forEach((el,i)=>{
+    el.addEventListener('click',()=>showDetail(results[i].id));
   });
 }
 
 function renderDataTab() {
-  const ts = localStorage.getItem(SYNC_TS_KEY);
-  const src = localStorage.getItem(SYNC_SRC_KEY) || 'unknown';
-  const tsStr = ts ? new Date(parseInt(ts)).toLocaleString([],{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}) : 'Never';
-  const statusColor = syncStatus === 'live' ? 'green' : syncStatus === 'stale' ? 'amber' : '';
-  const statusText = syncStatus === 'live' ? 'Live — up to date' : syncStatus === 'stale' ? 'Cached data' : 'Offline';
-
-  scroll.innerHTML = `<div class="data-area">
+  const ts=localStorage.getItem('pf_ts');
+  const tsStr=ts?new Date(parseInt(ts)).toLocaleString([],{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}):'Never';
+  scroll.innerHTML=`<div class="data-area">
     <div class="status-card">
-      <div class="sc-row"><span class="sc-label">Status</span><span class="sc-val ${statusColor}">${statusText}</span></div>
+      <div class="sc-row"><span class="sc-label">Plants loaded</span><span class="sc-val green">${plants.length}</span></div>
       <div class="sc-row"><span class="sc-label">Last synced</span><span class="sc-val">${tsStr}</span></div>
-      <div class="sc-row"><span class="sc-label">Source</span><span class="sc-val">${src === 'network' ? 'plants.json (GitHub)' : 'Local cache'}</span></div>
-      <div class="sc-row"><span class="sc-label">Plants loaded</span><span class="sc-val">${plants.length}</span></div>
+      <div class="sc-row"><span class="sc-label">Data source</span><span class="sc-val">GitHub Pages</span></div>
     </div>
     <button class="sync-btn" id="sync-btn" onclick="triggerSync()">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
       Sync now from GitHub
     </button>
     <div class="info-box">
-      <strong>How auto-sync works:</strong><br>
-      Each time this app opens, it fetches <code>plants.json</code> from GitHub Pages. Your IT team uploads a new file to GitHub and every phone gets updated automatically on next open — no manual import needed.<br><br>
-      <strong>Data file location:</strong><br>
-      <code>plants.json</code> — same folder as the app<br><br>
-      <strong>JSON format:</strong><br>
-      <code>[{"common":"...","genus":"...","aisle":"A","section":"1-3",...}]</code>
+      <strong>Auto-sync:</strong> The app fetches fresh data from GitHub every time it opens. Your IT team uploads a new <code>plants.json</code> to GitHub and all phones update automatically.<br><br>
+      <strong>Data URL:</strong><br><code>kylenatorp.github.io/plant-finder/plants.json</code>
     </div>
   </div>`;
 }
 
 async function triggerSync() {
-  const btn = document.getElementById('sync-btn');
-  if (btn) { btn.classList.add('spinning'); btn.disabled = true; }
+  const btn=document.getElementById('sync-btn');
+  if(btn){btn.classList.add('spinning');btn.disabled=true;}
   await manualSync();
   renderDataTab();
 }
@@ -477,16 +418,12 @@ function emptyState(msg) {
 }
 
 function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
 }
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(()=>{}));
-}
-
-init();
+loadData();
 </script>
 </body>
 </html>
